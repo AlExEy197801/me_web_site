@@ -1,0 +1,41 @@
+
+{% load static %}
+<div class="raw col-12">
+  <div class="head">
+
+    <div class="logo">
+      <a href="{% url 'home' %}">
+        <img class="logo_img" src="{% static 'main/img/logo1.png' %}" alt="logo">
+      </a>
+    </div>
+
+    <div class="menu-vert-line">
+      <img src="{% static 'main/img/Линия 1-vert-line-.png' %}" alt="logo">
+    </div>
+
+    <div class="main-menu-left">
+      {% for m in menu %}
+      <div class="menu">
+        <a href="#">
+          <p class="menu-left">{{ m.menu_item }}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="menu-vert-line">
+      <img src="{% static 'main/img/Линия 1-vert-line-.png' %}" alt="logo">
+    </div>
+
+    <div class="main-menu-right">
+      {% for m in log %}
+      <div class="menu-log">
+        <a href="#">
+          <p class="menu-right">{{ m.menu_item }}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

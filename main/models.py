@@ -10,7 +10,7 @@ class AboutMe(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
-    is_publushed = models.BooleanField(default=True)
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
@@ -32,13 +32,24 @@ class Menu(models.Model):
     class Meta:
         verbose_name = 'Меню'
         verbose_name_plural = 'Меню'
+        ordering = ['pk', 'menu_item']
 
 
 class SubMenu(models.Model):
     sub_menu_items = models.CharField(max_length=255)
     urls = models.CharField(max_length=255)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='tags')
-    
+
     class Meta:
         verbose_name = 'Подменю'
         verbose_name_plural = 'Подменю'
+
+
+class LogInReg(models.Model):
+    menu_item = models.CharField(max_length=255)
+    urls = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = 'LogRegМеню'
+        verbose_name_plural = 'LogRegМеню'
+        ordering = ['pk', 'menu_item']

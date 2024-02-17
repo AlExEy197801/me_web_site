@@ -1,8 +1,21 @@
 {% extends 'main/base.html' %}
-{% load static %}
-{% block main %}
-  <div class="container">
-    
+<!-- {% load static %} -->
 
+{% block main %}
+
+<div class="raw col-12">
+  {% for p in posts %}
+  <div class="head {{p.title}} main-me">
+    <!-- <div class="main-me"> -->
+
+      <p>
+        <img src="{% static '' %}{{p.path_photo}}" alt="Иллюстрация" class="{{ p.style_photo }}">
+          {{ p.content }}
+      </p>
+    <!-- </div> -->
   </div>
+  {% endfor %}
+</div>
+<small>Все фото взяты из интернета, кроме меня.</small>
+
 {% endblock %}
