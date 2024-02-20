@@ -7,29 +7,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" type="image/png" href="{% static 'main/img/favicon.ico' %}">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
-  <link rel="stylesheet" type="text/css" href="/me_website/static/bootstrap/css/bootstrap.min.css">
-
-  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{% static 'main/css/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href=" {% static 'main/css/stylesheet.css' %}">
+  <link rel="stylesheet" href=" {% static 'main/css/main-header.css' %}">
+  <link rel="stylesheet" href=" {% static 'main/css/main-main.css' %}">
+  <link rel="stylesheet" href=" {% static 'main/css/adaptiv-style.css' %}">
+  <title>{{title}}</title>
+  <!-- <style type="text/css">
+    IMG.fig {
+     float: right; /* Обтекание картинки по левому краю */
+     padding-left: 10px; /* Отступ слева */
+     padding-bottom: 10px; /* Отступ снизу */
+    }
+   </style> -->
 </head>
 <body>
-  <div>
+
+  {#  display: flex для того, чтобы сайд бай и основной контент были одинаковой высоты#}
+  <div class="container-my">
+
+    {% include head_1 %}
+
     <aside class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-      {% include 'main/side-1.html' %}
+      {% include 'main/side.html' %}
     </aside>
 
-    <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+    <main">
       {% block main %}
       {% endblock %}
     </main>
   </div>
 
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      {% include 'main/footer.html' %}
-    </div>
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    {% include 'main/footer.html' %}
+  </div>
 
-<script type="text/javascript" src="/me_website/static/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/me_website/static/jquery2.1.4/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="{% static 'main/js/bootstrap/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'main/js/jquery2.1.4/jquery.min.js' %}"></script> -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'main/js/popup_img.js' %}"></script>
+
+<script>
+  $(document).ready(function(){
+      $('.main-me').fadeIn(2000);
+  });
+</script>
+
 </body>
 </html>

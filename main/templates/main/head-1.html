@@ -1,0 +1,61 @@
+
+{% load static %}
+<div class="raw col-12">
+  <div class="head">
+
+    <div class="logo">
+      <a href="{% url 'home' %}">
+        <img class="logo_img" src="{% static 'main/img/logo1.png' %}" alt="logo">
+      </a>
+    </div>
+
+    <div class="menu-vert-line">
+      <img src="{% static 'main/img/Линия 1-vert-line-.png' %}" alt="logo">
+    </div>
+
+    <div class="main-menu-left">
+      {% for m in menu %}
+      <div class="menu" title="menu">
+        <a href="{% url m.urls %}">
+          <p class="menu-left">{{ m.menu_item }}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="menu-vert-line">
+      <img src="{% static 'main/img/Линия 1-vert-line-.png' %}" alt="logo">
+    </div>
+
+    <div class="main-menu-right">
+      {% if request.user.is_authenticated %}
+
+      <div class="menu-log">
+          <p class="menu-right">{{ user.username }}</p>
+      </div>
+
+      <div class="menu-log">
+        <a href="{% url 'logout' %}">
+          <p class="menu-right">Выйти</p>
+        </a>
+      </div>
+
+      {% else %}
+
+      <div class="menu-log">
+        <a href="{% url 'login' %}">
+          <p class="menu-right">Войти</p>
+        </a>
+      </div>
+
+      <div class="menu-log">
+        <a href="{% url 'registration' %}">
+          <p class="menu-right">Зарегиться</p>
+        </a>
+      </div>
+
+      {% endif %}
+    </div>
+
+  </div>
+</div>
