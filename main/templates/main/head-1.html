@@ -15,8 +15,8 @@
 
     <div class="main-menu-left">
       {% for m in menu %}
-      <div class="menu">
-        <a href="#">
+      <div class="menu" title="menu">
+        <a href="{% url m.urls %}">
           <p class="menu-left">{{ m.menu_item }}</p>
         </a>
       </div>
@@ -28,13 +28,33 @@
     </div>
 
     <div class="main-menu-right">
-      {% for m in log %}
+      {% if request.user.is_authenticated %}
+
       <div class="menu-log">
-        <a href="#">
-          <p class="menu-right">{{ m.menu_item }}</p>
+          <p class="menu-right">{{ user.username }}</p>
+      </div>
+
+      <div class="menu-log">
+        <a href="{% url 'logout' %}">
+          <p class="menu-right">Выйти</p>
         </a>
       </div>
-      {% endfor %}
+
+      {% else %}
+
+      <div class="menu-log">
+        <a href="{% url 'login' %}">
+          <p class="menu-right">Войти</p>
+        </a>
+      </div>
+
+      <div class="menu-log">
+        <a href="{% url 'registration' %}">
+          <p class="menu-right">Зарегиться</p>
+        </a>
+      </div>
+
+      {% endif %}
     </div>
 
   </div>

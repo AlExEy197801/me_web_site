@@ -4,17 +4,19 @@
 {% block main %}
 
 <div class="raw col-12">
-  {% for p in posts %}
-  <div class="head {{p.title}} main-me">
-    <!-- <div class="main-me"> -->
+{% for p in posts %}
+  <div class="head {{p.title}}">
+    <div class="main-me">
+      <p id="content">
+        <img src="{% static '' %}{{p.path_photo}}" title="photo" alt="Иллюстрация" class="{{ p.style_photo }} image">
 
-      <p>
-        <img src="{% static '' %}{{p.path_photo}}" alt="Иллюстрация" class="{{ p.style_photo }}">
-          {{ p.content }}
+          {{ p.content|linebreaksbr }}
+
       </p>
-    <!-- </div> -->
+
+    </div>
   </div>
-  {% endfor %}
+{% endfor %}
 </div>
 <small>Все фото взяты из интернета, кроме меня.</small>
 

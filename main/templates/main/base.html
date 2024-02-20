@@ -6,17 +6,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/png" href="{% static 'main/img/favicon.ico' %}">
   <link rel="stylesheet" href="{% static 'main/css/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href=" {% static 'main/css/stylesheet.css' %}">
   <link rel="stylesheet" href=" {% static 'main/css/main-header.css' %}">
   <link rel="stylesheet" href=" {% static 'main/css/main-main.css' %}">
+  <link rel="stylesheet" href=" {% static 'main/css/adaptiv-style.css' %}">
   <title>{{title}}</title>
-  <style type="text/css">
+  <!-- <style type="text/css">
     IMG.fig {
      float: right; /* Обтекание картинки по левому краю */
      padding-left: 10px; /* Отступ слева */
      padding-bottom: 10px; /* Отступ снизу */
     }
-   </style>
+   </style> -->
 </head>
 <body>
 
@@ -42,6 +45,15 @@
 
 
 <script type="text/javascript" src="{% static 'main/js/bootstrap/bootstrap/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'main/js/jquery2.1.4/jquery.min.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'main/js/jquery2.1.4/jquery.min.js' %}"></script> -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'main/js/popup_img.js' %}"></script>
+
+<script>
+  $(document).ready(function(){
+      $('.main-me').fadeIn(2000);
+  });
+</script>
+
 </body>
 </html>

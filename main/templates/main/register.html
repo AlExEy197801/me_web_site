@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block main %}
+  <div class="modal fade" id="staticBackdrop" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Регистрация</h5>
+        </div>
+        <div class="modal-body">
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-error">{{ form.non_field_errors }}</div>
+            {% for f in form %}
+              <p style="font-size: 10px">
+                <label style="font-size: 10px" class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>
+                {{ f }}
+              </p>
+              <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button type="submit">Регистрация</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
