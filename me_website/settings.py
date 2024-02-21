@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'channels',
     'main',
     # 'notes',
-    # 'chat',
-    # 'chat_main',
+    'chat',
+    'main_chat',
 ]
 
 SITE_ID = 1
