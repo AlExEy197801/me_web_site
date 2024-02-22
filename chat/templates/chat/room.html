@@ -35,9 +35,10 @@
 
   </div>
 
+  <!-- добавляет временную метку к скрипту main.js -->
+  <script>document.write("<script type='text/javascript' src='{% static 'chat/js/main.js' %}?v=" + Date.now() + "'><\/script>");</script>
 
-
-    <script src="{% static 'chat/js/main.js' %}"></script>
+    <!-- <script src="{% static 'chat/js/main.js' %}"></script> -->
     <!-- <script src="{% static 'js/main1.js' %}"></script> -->
 
     <!-- <script>

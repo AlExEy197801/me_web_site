@@ -12,16 +12,28 @@ let servers = {  // серверы оглушения от google
 }
 
 const roomName = JSON.parse(document.getElementById('room_name').textContent);
-const socket = new WebSocket(`ws://${window.location.host}/ws/chat/${roomName}/`);
+
+let loc = window.location;
+let wsStart = 'ws://';
+if (loc.protocol == 'https:') {
+     wsStart = 'wss://'
+}
+const socket = new WebSocket(`${wsStart}${window.location.host}/ws/chat/${roomName}/`);
+
 // const socket = new WebSocket(`ws://192.168.100.4/ws/chat/${roomName}/`);
 console.log(window.location.host)
 const createOfferButton = document.querySelector('#create-offer')
+
+console.log('localStream:', navigator.mediaDevices.enumerateDevices())
+let device = navigator.mediaDevices.enumerateDevices()
 
 let init = async() => {
   localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
       audio: false
   })  // захватывает камеру
+
+  console.log('localStream', localStream)
 
   document.getElementById('user-1').srcObject = localStream
 
@@ -31,7 +43,7 @@ let init = async() => {
   //     audio: false
   // })  // getDisplayMedia -- захватывает экран
 
-  console.log('localStream:', await navigator.mediaDevices.enumerateDevices())
+  // console.log('localStream:', await navigator.mediaDevices.enumerateDevices())
 }
 
 let createOffer = async() => {

@@ -13,7 +13,7 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from chat.routing import websocket_urlpatterns
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite_web_rtc_socketio.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'me_website.settings')
 
 # application = get_asgi_application()
 

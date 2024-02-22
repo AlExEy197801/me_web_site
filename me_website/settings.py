@@ -157,13 +157,6 @@ INTERNAL_IPS = [
     '127.0.0.1'
 ]
 
-DEFAULT_FROM_EMAIL = 'hello@atrudoffcard.ru'
-SERVER_EMAIL = 'hello@atrudoffcard.ru'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'mail.atrudoffcard.ru'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'hello@atrudoffcard.ru'
-EMAIL_HOST_PASSWORD = '10011978Alex'
 # EMAIL_MAIL_TOKEN_LIFE = 60 * 5
 
 
