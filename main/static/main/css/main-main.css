@@ -1,3 +1,15 @@
+/* .body {
+
+} */
+
+.background {
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  opacity: 65%;
+}
+
 .head {
   font-family: Montserrat, sans-serif;
   line-height: 29px;
