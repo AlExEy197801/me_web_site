@@ -36,7 +36,7 @@ let init = async() => {
   //     video: true,
   //     audio: true
   // })  // захватывает камеру
-  document.getElementById('ttt').value = rand_name
+  // document.getElementById('ttt').value = rand_name
 }
 
 // Обработчик открытия соединения
@@ -76,6 +76,7 @@ let createPeerConnection = async(sdpType) => {
 }
 
 let createAnswer = async () => {
+
   createPeerConnection('answer-sdp')
 
   let offer = document.getElementById('offer-sdp').value
@@ -83,8 +84,9 @@ let createAnswer = async () => {
 
   offer = JSON.parse(offer)
   await peerConnection.setRemoteDescription(offer)
-
+  setTimeout(() => sendAnswer(), 3000);
   let answer = await peerConnection.createAnswer()
+  setTimeout(() => sendAnswer(), 3000);
   await peerConnection.setLocalDescription(answer)
 
   document.getElementById('answer-sdp').value  = JSON.stringify(answer)
